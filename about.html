@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Stories</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Playfair Display for Serifs, DM Sans for text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      background-color: #F8F2ED;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .font-title {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Organic wave clip matching the illustration in forest.png exactly */
+    .hero-mask {
+      clip-path: url(#wave-mask);
+      -webkit-clip-path: url(#wave-mask);
+    }
+
+    /* Button glow shadow */
+    .btn-shadow {
+      box-shadow: 0 14px 28px -6px rgba(26, 33, 56, 0.45);
+    }
+
+    /* Keyframes for natural gentle wind sway */
+    @keyframes gentleSway {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      35% {
+        transform: rotate(3deg);
+      }
+      70% {
+        transform: rotate(-2deg);
+      }
+    }
+
+    .flower-wind-sway {
+      animation: gentleSway 5s ease-in-out infinite;
+      transform-origin: bottom center;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="min-h-screen w-full flex items-center justify-center p-4 sm:p-8 md:p-12 overflow-x-hidden selection:bg-orange-100">
+
+  <!-- SVG Clip Path Definition for the Exact Curved Organic Cutout -->
+  <svg class="absolute w-0 h-0" width="0" height="0">
+    <defs>
+      <clipPath id="wave-mask" clipPathUnits="objectBoundingBox">
+        <!-- Broader and deeper organic sweep matching reference -->
+        <path d="M 0.22,0 
+                 C 0.12,0.06 -0.03,0.15 0.03,0.29 
+                 C 0.08,0.42 0.36,0.48 0.33,0.67 
+                 C 0.29,0.80 0.46,0.97 0.74,0.97 
+                 C 0.88,0.97 0.98,0.85 1.0,0.68 
+                 L 1.0,0 Z" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- BEGIN: Main Canvas Card (Fixed 4:3 / aspect ratio container matching reference) -->
+  <main class="relative w-full max-w-[1060px] bg-white rounded-[32px] md:rounded-[40px] shadow-[0_25px_70px_rgba(40,30,20,0.07)] overflow-hidden min-h-[680px] md:min-h-[720px] flex flex-col justify-between">
+
+
+
+    <!-- Main Content Grid -->
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 flex-1 items-start px-8 md:px-14 pt-24 md:pt-28 pb-4">
+      
+      <!-- Left Column: Typography, Button & Flowers -->
+      <div class="md:col-span-5 flex flex-col justify-start z-20 pr-4">
+        
+        <!-- Label kecil -->
+        <span class="text-[#FF5526] text-[11px] font-bold tracking-[0.24em] uppercase mb-3 select-none">
+          TENTANG HALAMAN INI
+        </span>
+
+        <!-- Main Title -->
+        <h1 class="font-title text-[#23283B] text-[34px] sm:text-[40px] md:text-[44px] leading-[1.26] font-black tracking-[0.04em]">
+          Kenapa Aku<br>Bikin Ini?
+        </h1>
+
+        <!-- Subtitle Verse -->
+        <p class="mt-5 text-[#5F677A] text-[13.5px] sm:text-[14px] leading-[1.75] font-normal tracking-wide max-w-[310px]">
+          Biar kamu lebih paham, gak bingung lagi, dan selalu ada pas hari-hari beratku datang.
+        </p>
+
+        <!-- CTA Button -->
+        <div class="mt-8">
+          <button id="btn-read-more" type="button" class="btn-shadow inline-block bg-[#232942] hover:bg-[#161a2b] text-white text-[11px] font-semibold tracking-[0.22em] py-3.5 px-8 rounded-full uppercase transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 select-none cursor-pointer">
+            READ MORE
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Hero Masked Artwork (Enlarged and positioned to match exact scale in reference) -->
+      <div class="md:col-span-7 absolute top-0 right-0 w-[65%] md:w-[68%] lg:w-[70%] h-[88%] md:h-[90%] pointer-events-none select-none z-10">
+        <div class="hero-mask w-full h-full relative overflow-hidden">
+          <img src="Beruang.Png" 
+               alt="Bear and white bunny under glowing fruit tree" 
+               class="w-full h-full object-cover object-[84%_top] scale-105 origin-top-right select-none pointer-events-none">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Botanical Accent Flowers (Layered BEHIND the front hill, sways smoothly as one whole plant) -->
+    <div class="flower-wind-sway absolute bottom-[78px] md:bottom-[94px] left-9 md:left-16 select-none pointer-events-none" style="z-index: 15;">
+      <svg class="w-28 h-36 md:w-32 md:h-40 overflow-visible" fill="none" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Stems extending downward into the hill -->
+        <path d="M 32 155 C 35 100 48 64 60 42" stroke="#16252C" stroke-linecap="round" stroke-width="3.2"></path>
+        <path d="M 40 155 C 47 94 68 52 90 22" stroke="#16252C" stroke-linecap="round" stroke-width="3.2"></path>
+        
+        <!-- Dark Green / Charcoal Leaves -->
+        <path d="M 32 108 C 16 94 12 70 20 54 C 28 72 36 92 32 108 Z" fill="#142B2E"></path>
+        <path d="M 34 88 C 39 74 51 64 61 72 C 53 84 41 88 34 88 Z" fill="#142B2E"></path>
+        
+        <!-- Left Flower Head (Securely attached to left stem at 60, 42) -->
+        <g transform="translate(60, 42) rotate(-14)">
+          <path d="M -8 2 C -9 -3 9 -3 8 2 Z" fill="#16252C"></path>
+          <path d="M -9 0 C -14 -8 -10 -16 -5 -18 C -4 -11 -2 -7 -9 0 Z" fill="#FF5526"></path>
+          <path d="M 0 0 C -4 -9 -2 -18 1 -20 C 4 -18 6 -9 0 0 Z" fill="#FF5526"></path>
+          <path d="M 9 0 C 2 -7 4 -11 5 -18 C 10 -16 14 -8 9 0 Z" fill="#FF5526"></path>
+        </g>
+        
+        <!-- Right Flower Head (Securely attached to right stem at 90, 22) -->
+        <g transform="translate(90, 22) rotate(18)">
+          <path d="M -9 2 C -10 -3 10 -3 9 2 Z" fill="#16252C"></path>
+          <path d="M -10 0 C -16 -9 -12 -19 -6 -21 C -5 -13 -2 -8 -10 0 Z" fill="#FF5526"></path>
+          <path d="M 0 0 C -5 -10 -2 -21 2 -23 C 5 -21 7 -10 0 0 Z" fill="#FF5526"></path>
+          <path d="M 10 0 C 2 -8 5 -13 6 -21 C 12 -19 16 -9 10 0 Z" fill="#FF5526"></path>
+        </g>
+      </svg>
+    </div>
+
+
+
+    <!-- Bottom Soft Wavy Dunes Background (Front dune covers flower stems on left, stays low near bear on right) -->
+    <div aria-hidden="true" class="pointer-events-none absolute bottom-0 left-0 w-full h-56 md:h-64 overflow-hidden z-20">
+      <svg class="absolute bottom-0 left-0 w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 220" xmlns="http://www.w3.org/2000/svg">
+        <!-- Back Dune (low on the right side) -->
+        <path d="M -50 220 C 80 110, 260 70, 520 160 C 740 230, 980 200, 1180 190 C 1320 185, 1420 195, 1500 205 L 1500 220 L -50 220 Z" fill="#F4EAE0" fill-opacity="0.85"></path>
+        <!-- Front Dune: high on the left to cover flower stems, sweeps down low near the bear on the right -->
+        <path d="M -50 220 C 60 135, 180 75, 420 170 C 660 250, 920 215, 1150 205 C 1300 200, 1420 210, 1500 215 L 1500 220 L -50 220 Z" fill="#EFE3D5" fill-opacity="1"></path>
+      </svg>
+    </div>
+
+  </main>
+
+  <!-- BEGIN: Modal Penjelasan (Maksimal 5 Paragraf) -->
+  <div id="modal-container" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#141829]/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+    <div id="modal-card" class="relative w-full max-w-lg bg-[#FBF8F5] rounded-[32px] p-6 sm:p-8 shadow-2xl border border-white/60 transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button id="btn-close-modal" type="button" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-[#EFE3D5] hover:bg-[#FF5526] hover:text-white text-[#232942] flex items-center justify-center transition-colors duration-200 cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <!-- Modal Header -->
+      <span class="text-[#FF5526] text-[10px] font-bold tracking-[0.24em] uppercase block mb-1">
+        UNTUK KAMU
+      </span>
+      <h3 class="font-title text-[24px] sm:text-[28px] font-black text-[#23283B] leading-tight mb-4">
+        Biar Kamu Paham & Peka
+      </h3>
+
+      <!-- 5 Paragraf Penjelasan -->
+      <div class="space-y-3.5 text-[#586174] text-[13.5px] leading-relaxed">
+        <p>
+          <strong>1. Bukan Cuma Sekadar "Darah Kotor"</strong><br>
+          Haid itu proses fisik yang melelahkan banget. Perut kram melilit, pinggang pegal serasa mau patah, dan tubuh gampang drop. Jadi kalau aku kelihatan lemas atau mager, aku beneran lagi nahan sakit di sekujur badan.
+        </p>
+
+        <p>
+          <strong>2. Emosi yang Naik Turun Bukan Sengaja</strong><br>
+          Menjelang dan saat haid, hormon di tubuhku berubah drastis tanpa bisa kukontrol. Kadang hal sepele bisa bikin aku tiba-tiba sedih, pengen nangis, atau gampang badmood. Aku bukannya benci sama kamu, tapi kepalaku memang lagi overwhelmed.
+        </p>
+
+        <p>
+          <strong>3. Aku Gak Minta Kamu Menyembuhkan, Cuma Mau Ditemenin</strong><br>
+          Kamu gak harus cari solusi medis yang rumit. Cukup tanya kabar dengan lembut, tawari hal manis, atau dengarkan keluh kesahku tanpa didebat. Validasi dan pengertian darimu itu obat pereda nyeri yang paling ampuh.
+        </p>
+
+        <p>
+          <strong>4. Jangan Pernah Bilang: "Gitu Aja Kok Marah?"</strong><br>
+          Kalimat itu bikin aku ngerasa sendirian. Pas lagi haid, energiku terkuras habis cuma buat nahan kram. Kalau kamu tanggapi dengan sabar dan gak ikut terpancing emosi, itu bikin aku ngerasa sangat dijaga dan disayang.
+        </p>
+
+        <p>
+          <strong>5. Terima Kasih Sudah Mau Belajar & Mengerti</strong><br>
+          Aku bikin halaman ini bukan buat nuntut macam-macam, tapi karena aku sayang dan pengen kita saling memahami. Kepekaan kecil darimu—seperti usapan di kepala atau kata-kata penenang—selalu bikin hariku jauh lebih baik.
+        </p>
+      </div>
+
+      <!-- Bottom Button -->
+      <div class="mt-6 pt-2 text-center">
+        <button id="btn-modal-understand" type="button" class="btn-shadow inline-block bg-[#232942] hover:bg-[#FF5526] text-white text-[11px] font-semibold tracking-[0.2em] py-3 px-8 rounded-full uppercase transition-all duration-300">
+          AKU MENGERTI ❤️
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Script -->
+  <script>
+    const btnReadMore = document.getElementById('btn-read-more');
+    const btnCloseModal = document.getElementById('btn-close-modal');
+    const btnUnderstand = document.getElementById('btn-modal-understand');
+    const modalContainer = document.getElementById('modal-container');
+    const modalCard = document.getElementById('modal-card');
+
+    function openModal() {
+      modalContainer.classList.remove('opacity-0', 'pointer-events-none');
+      modalCard.classList.remove('scale-95');
+      modalCard.classList.add('scale-100');
+    }
+
+    function closeModal() {
+      modalContainer.classList.add('opacity-0', 'pointer-events-none');
+      modalCard.classList.remove('scale-100');
+      modalCard.classList.add('scale-95');
+    }
+
+    if (btnReadMore) btnReadMore.addEventListener('click', openModal);
+    if (btnCloseModal) btnCloseModal.addEventListener('click', closeModal);
+    if (btnUnderstand) btnUnderstand.addEventListener('click', closeModal);
+
+    // Close on backdrop click
+    modalContainer.addEventListener('click', (e) => {
+      if (e.target === modalContainer) closeModal();
+    });
+  </script>
+
+</body>
+</html>
